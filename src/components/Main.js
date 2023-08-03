@@ -1,11 +1,11 @@
 import React from 'react'
-import Select from './Select'
+import CodeSelect from './CodeSelect'
 
 const Main = () => {
   return (
     <div>
       Main
-      <Select />
+      <CodeSelect />
     </div>
   )
 }
