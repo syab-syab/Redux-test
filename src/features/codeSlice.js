@@ -1,3 +1,4 @@
+// そこまで大きいアプリでは無ければLocalStrageの方が容易かもしれない
 import { createSlice } from "@reduxjs/toolkit"
 
 export const codeSlice = createSlice({

@@ -4,25 +4,28 @@ import CodeSelect from './CodeSelect'
 // import { QueryClient, QueryClientProvider } from 'react-query';
 // import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
+// import useLocal from '../functions/useLocal';
 
 // const queryClient = new QueryClient();
 
 const Main = () => {
   // const [show, setShow] = useState(true);
 
-  const url = "https://jsonplaceholder.typicode.com/todos"
+  const key = "api-data"
 
-  const { data, isLoaded, error } = useFetch(url);
+  // const { data, isLoaded, error } = localStorage.getItem(key) ? useLocal(key) : useFetch(`${process.env.REACT_APP_API_URL}`, key);
+  const { data, isLoaded, error } = useFetch(`${process.env.REACT_APP_API_URL}`, key);
+
 
   // useFetchで取得したデータ(オブジェクトか配列)をローカルストレージに
   // JSON.stringifyで文字列にしてから格納
   // localStorage.setItem("test", JSON.stringify(data))
 
   // ローカルストレージから格納したデータを取ってくる
-  const testData = localStorage.getItem("test")
+  // const testData = localStorage.getItem("test")
 
   // ローカルストレージから取ってきたデータを配列やオブジェクトに戻す
-  const parseData = JSON.parse(testData)
+  // const parseData = JSON.parse(testData)
 
  
 
@@ -46,11 +49,10 @@ const Main = () => {
     // <QueryClientProvider client={queryClient}>
       <div>
         <CodeSelect />
-        {}
         {isLoaded && <p>Loading...</p>}
         {error && <p>Error</p>}
         { data && <div>
-        {parseData.map((todo) => (
+        {data.map((todo) => (
               <div key={todo.id}>{todo.title}</div>
             ))}
           </div>}

@@ -1,3 +1,5 @@
+// もう要らないけど一応残しておく
+
 import React from 'react'
 import { useQuery } from 'react-query';
 
