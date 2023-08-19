@@ -4,7 +4,9 @@ import CodeSelect from './CodeSelect'
 // import { QueryClient, QueryClientProvider } from 'react-query';
 // import { useState } from 'react';
 import useFetch from '../hooks/useFetch';
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 // import useLocal from '../functions/useLocal';
+import Example from './Example';
 
 // const queryClient = new QueryClient();
 
@@ -47,8 +49,12 @@ const Main = () => {
 
   return (
     // <QueryClientProvider client={queryClient}>
-      <div>
+      <div className='
+      bg-gray-100
+      '>
+        <span className="fi fi-jp"></span>
         <CodeSelect />
+        <Example payCode={localStorage.getItem("code")} />
         {isLoaded && <p>Loading...</p>}
         {error && <p>Error</p>}
         { data && <div>
